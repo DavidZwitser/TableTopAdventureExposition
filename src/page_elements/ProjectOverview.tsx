@@ -14,9 +14,14 @@ interface IProjectOverviewStates
 
 export default class ProjectOverview extends React.Component<IProjectOverviewProps, IProjectOverviewStates>
 {
+    imagesToLoad: number;
+    lastAuthor: IProfile;
+
     constructor(props: IProjectOverviewProps)
     {
         super(props);
+
+        this.lastAuthor = this.props.profiles[0];
 
         this.state = {
             currentAuthor: this.props.profiles[0]
@@ -43,7 +48,7 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
                     src = { this.props.basePath + this.state.currentAuthor.name + '/project_pictures/' + i + this.state.currentAuthor.projExt }
                     className = 'project-images' 
                     key = {i}
-                    loading = 'lazy'
+                    // loading = 'lazy'
                 ></img>
             );
         }
@@ -62,10 +67,40 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
         window.removeEventListener('hashchange', this.replaceImages.bind(this));
     }
 
+    private checkIfLoaded(): void
+    {
+        this.imagesToLoad --;
+
+        if (this.imagesToLoad <= 0)
+        {
+            // alert('loaded');
+            document.getElementById('project-overview-loading-screen').style.opacity = '0';
+        }
+    }
+
     render()
     {
+        if (document.getElementById('project-overview-loading-screen'))
+        {
+            if (this.state.currentAuthor.name !==  this.lastAuthor.name)
+            {
+                this.imagesToLoad = this.state.currentAuthor.amountOfImages;
+                document.getElementById('project-overview-loading-screen').style.opacity = '1';
+            }
+            else
+            {
+                document.getElementById('project-overview-loading-screen').style.opacity = '0';
+            }
+        }
+
+        this.lastAuthor = this.state.currentAuthor;
+
         return (
-            <div id = 'project-overview'>
+            <div id = 'project-overview' onLoad = {() => this.checkIfLoaded()}>
+
+                <div id = 'project-overview-loading-screen' >
+                    {/* <img src="images/loading.gif" alt=""/> */}
+                </div>
 
                 {this.getImages()}
 

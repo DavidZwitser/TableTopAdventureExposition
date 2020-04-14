@@ -85,6 +85,20 @@ body
 
     background-color: rgba(211, 211, 211, 0.287);
 
+    #project-overview-loading-screen
+    {
+        position: absolute;
+
+        opacity: 0;
+
+        transition: opacity .2s;
+
+        width: 100vw;
+        height: 1000vh;
+
+        background-color: rgba(153, 153, 153, 0.897);
+    }
+
     .project-images
     {
         float: right;
