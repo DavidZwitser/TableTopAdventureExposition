@@ -1,2 +1,2 @@
-# My website boilerplate
-A boilerplate using Typescript SCSS and Reactjs managed by Webpack
+# Exposition page
+De expositie pagina voor het seminar Table Top Traveling in 2020
