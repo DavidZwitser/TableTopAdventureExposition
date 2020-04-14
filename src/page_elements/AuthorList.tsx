@@ -18,6 +18,10 @@ export default class AuthorList extends React.Component<IAuthorListProps, IAutho
     constructor(props: IAuthorListProps)
     {
         super(props);
+
+        this.state = {
+            activeAuthorIndex: 0
+        };
     }
 
     private stripOfUnderscores(text: string): string
@@ -35,8 +39,6 @@ export default class AuthorList extends React.Component<IAuthorListProps, IAutho
             }
         }
 
-        console.log(clean);
-
         return clean;
     }
 
@@ -52,6 +54,7 @@ export default class AuthorList extends React.Component<IAuthorListProps, IAutho
                         src = {this.props.basePath + this.props.authors[i].name + '/profile_picture' + this.props.authors[i].profileExt} 
                         className = 'author-profile-picture' 
                         key = {i}
+                        style = { i == this.state.activeAuthorIndex ? {opacity: .4} : {} }
                     ></img>
                     <div className = 'author-profile-hover' key = {i + 2000}> 
                         <p> 
@@ -63,6 +66,25 @@ export default class AuthorList extends React.Component<IAuthorListProps, IAutho
         }
 
         return images;
+    }
+
+    private updateActiveAuthor(): void
+    {
+        let hash: number = Number(window.location.hash.split('#')[1]);
+
+        this.setState({
+            activeAuthorIndex: hash
+        });
+    }
+
+    componentDidMount(): void
+    {
+        window.addEventListener('hashchange', this.updateActiveAuthor.bind(this));
+    }
+
+    componentWillUnmount(): void
+    {
+        window.removeEventListener('hashchange', this.updateActiveAuthor.bind(this))
     }
 
     render()

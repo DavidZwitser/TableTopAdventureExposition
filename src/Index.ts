@@ -5,7 +5,7 @@ import * as ReactDOM from "react-dom";
 
 import ImageImporter from './data_handling/ImageImporter';
 
-import Content, { IContentProps } from './content';
+import Body, { IContentProps } from './Body';
 
 export interface IProfile
 {
@@ -25,12 +25,90 @@ class Main
             profileExt: '.jpg',
             projExt: '.png',
             amountOfImages: 16
-        },
+        },    
         {
             name: 'Lisa_Hukker',
             profileExt: '.jpg',
             projExt: '.jpg',
             amountOfImages: 15
+        },
+        {
+            name: 'David_Zwitser',
+            profileExt: '.jpg',
+            projExt: '.png',
+            amountOfImages: 16
+        },
+        {
+            name: 'David_Zwitser',
+            profileExt: '.jpg',
+            projExt: '.png',
+            amountOfImages: 16
+        },
+        {
+            name: 'David_Zwitser',
+            profileExt: '.jpg',
+            projExt: '.png',
+            amountOfImages: 16
+        },
+        {
+            name: 'David_Zwitser',
+            profileExt: '.jpg',
+            projExt: '.png',
+            amountOfImages: 16
+        },
+        {
+            name: 'David_Zwitser',
+            profileExt: '.jpg',
+            projExt: '.png',
+            amountOfImages: 16
+        },
+        {
+            name: 'David_Zwitser',
+            profileExt: '.jpg',
+            projExt: '.png',
+            amountOfImages: 16
+        },
+        {
+            name: 'David_Zwitser',
+            profileExt: '.jpg',
+            projExt: '.png',
+            amountOfImages: 16
+        },
+        {
+            name: 'David_Zwitser',
+            profileExt: '.jpg',
+            projExt: '.png',
+            amountOfImages: 16
+        },
+        {
+            name: 'David_Zwitser',
+            profileExt: '.jpg',
+            projExt: '.png',
+            amountOfImages: 16
+        },
+        {
+            name: 'David_Zwitser',
+            profileExt: '.jpg',
+            projExt: '.png',
+            amountOfImages: 16
+        },
+        {
+            name: 'David_Zwitser',
+            profileExt: '.jpg',
+            projExt: '.png',
+            amountOfImages: 16
+        },
+        {
+            name: 'David_Zwitser',
+            profileExt: '.jpg',
+            projExt: '.png',
+            amountOfImages: 16
+        },
+        {
+            name: 'David_Zwitser',
+            profileExt: '.jpg',
+            projExt: '.png',
+            amountOfImages: 16
         }
     ]
 
@@ -57,7 +135,7 @@ class Main
         }
 
         ReactDOM.render(
-            React.createElement(Content, <IContentProps> {
+            React.createElement(Body, <IContentProps> {
                 profiles: this.profiles,
                 basePath: this.projectsBasePath
             }),

@@ -10,12 +10,26 @@ export interface IContentProps
     basePath: string;
 }
 
-export default class Content extends React.Component<IContentProps>
+export default class Body extends React.Component<IContentProps>
 {
     render()
     {
         return (
+
             <div id = 'container'>
+
+                <div id = 'top-bar'>
+                    <h1 id = 'title-beelden'>beelden</h1>
+                    <h1 id = 'title-makers' >makers</h1>
+                </div>
+
+                <div id = 'nav-bar'>
+                    <ul>
+                        <li><a href="#0">Home</a></li>
+                        <li><a href="" onClick = {() => alert("epic event")}>Challenge</a></li>
+                    </ul>
+
+                </div>
 
                 <ProjectOverview 
                     profiles = {this.props.profiles}
