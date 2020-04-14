@@ -1,0 +1,99 @@
+body
+{
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+
+    user-select: none;
+}
+
+#project-overview
+{
+    width: 70vw;
+    height: 100vh;
+
+    margin-left: 15vw;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    display: inline-block;
+
+
+    .project-images
+    {
+        float: right;
+
+        object-fit: contain;
+
+        width: 70vw;
+        max-height: 80vmin;
+
+        margin: 1vmin;
+    }
+}
+
+#author-list
+{
+    float: right;
+
+    width: 15vmin;
+
+    .author-profile
+    {
+        .author-profile-picture
+        {
+            width: 15vmin;
+            height: 15vmin;
+    
+            object-fit: cover;
+
+            float: left;
+            
+        }
+        .author-profile-hover
+        {
+            position: sticky;
+
+            // top: 
+
+            z-index: 2;
+
+            width: 15vmin;
+            height: 15vmin;
+
+            background-color: rgba(37, 37, 37, 0.63);
+
+            opacity: 0;
+
+            // margin-top: -15.5vw;
+
+
+            transition: opacity .3s;
+
+            text-align: center;
+
+            p 
+            {
+                align-items: center;
+                position: absolute;
+
+                margin-top: 6vw;
+
+                font-size: 2vmin;
+
+                color: white;
+                font-weight: lighter;
+            }
+
+        }
+
+        
+        .author-profile-hover:hover
+        {
+            opacity: 1;
+        }
+    }
+
+}
