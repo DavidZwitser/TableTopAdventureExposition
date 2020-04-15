@@ -93,10 +93,64 @@ body
 
         transition: opacity .2s;
 
-        width: 100vw;
+        width: 70vw;
         height: 1000vh;
 
-        background-color: rgba(153, 153, 153, 0.897);
+        background-color: rgb(240, 240, 240);
+
+        #project-overview-loading-text
+        {
+            // position: absolute;
+
+            margin: 0;
+            left: 50vw;
+            top: 50vh;
+            text-align: center;
+
+            font-size: 5vmin;
+
+            margin-top: 40vh;
+
+            transform: rotate(90deg);
+
+            font-weight: lighter;
+        }
+    }
+
+    #project-overview-author-info
+    {
+        margin-bottom: 5vmin;
+        img 
+        {
+            width: 30vw;
+
+            margin: 2vmin;
+
+            margin-bottom: 0;
+        }
+
+        
+        #author-bio
+        {
+
+            display: inline-block;
+
+            vertical-align: top;
+
+            font-size: 1.4vmin;
+
+            width: 30vw;
+
+        }
+
+        #author-verhaal
+        {
+            clear: left;
+
+            margin: 2vmin;
+
+            font-size: 1.4vmin;
+        }
     }
 
     .project-images
@@ -112,6 +166,7 @@ body
 
         // margin: 1vmin;
     }
+
 }
 
 #author-list

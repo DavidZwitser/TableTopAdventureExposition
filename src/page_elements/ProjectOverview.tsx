@@ -24,8 +24,9 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
         this.lastAuthor = this.props.profiles[0];
 
         this.state = {
-            currentAuthor: this.props.profiles[0]
+            currentAuthor: this.props.profiles[Number(window.location.hash.split('#')[1])]
         };
+
     }
 
     public replaceImages()
@@ -33,7 +34,7 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
         let hash: number = Number(window.location.hash.split('#')[1]);
 
         this.setState({
-            currentAuthor: this.props.profiles[ hash ]
+            currentAuthor: this.props.profiles[hash]
         });
     }
 
@@ -73,7 +74,6 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
 
         if (this.imagesToLoad <= 0)
         {
-            // alert('loaded');
             document.getElementById('project-overview-loading-screen').style.opacity = '0';
         }
     }
@@ -93,13 +93,33 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
             }
         }
 
+        if (document.getElementById('project-overview'))
+        {
+            document.getElementById('project-overview').scrollTop = 0;
+        }
+
         this.lastAuthor = this.state.currentAuthor;
 
         return (
             <div id = 'project-overview' onLoad = {() => this.checkIfLoaded()}>
 
+
                 <div id = 'project-overview-loading-screen' >
-                    {/* <img src="images/loading.gif" alt=""/> */}
+                    <p id = 'project-overview-loading-text'>Loading...</p>
+                </div>
+
+                <div id = 'project-overview-author-info'>
+                    <img src={this.props.basePath + this.state.currentAuthor.name + '/profile_picture' + this.state.currentAuthor.profileExt} alt=""/>
+                    
+                    <p id = 'author-bio'>
+                        <h2 id = 'author-bio-title'>Bio</h2>
+                        {this.state.currentAuthor.bio}
+                    </p>
+                    
+                    <p id = 'author-verhaal'>
+                        <h2 id = 'author-verhaal-title'>Het verhaal</h2>
+                        {this.state.currentAuthor.verhaal}
+                    </p>
                 </div>
 
                 {this.getImages()}

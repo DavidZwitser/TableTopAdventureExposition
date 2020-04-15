@@ -22,6 +22,8 @@ export default class AuthorList extends React.Component<IAuthorListProps, IAutho
         this.state = {
             activeAuthorIndex: 0
         };
+
+        this.updateActiveAuthor();
     }
 
     private stripOfUnderscores(text: string): string
