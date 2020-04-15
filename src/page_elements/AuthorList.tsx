@@ -20,10 +20,8 @@ export default class AuthorList extends React.Component<IAuthorListProps, IAutho
         super(props);
 
         this.state = {
-            activeAuthorIndex: 0
+            activeAuthorIndex: Number(window.location.hash.split('#')[1])
         };
-
-        this.updateActiveAuthor();
     }
 
     private stripOfUnderscores(text: string): string
