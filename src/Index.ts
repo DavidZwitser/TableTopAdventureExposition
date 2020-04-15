@@ -101,6 +101,12 @@ class Main
     {
         new ImageImporter();
 
+
+        if (window.location.hash == "")
+        {
+            window.location.hash = "0";
+        }
+
         // let prntStr: string = '';
         // let pre: string = "require.resolve('../../images/projects/";
         // for (let i = 0; i < this.profiles.length; i++)
