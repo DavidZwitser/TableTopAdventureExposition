@@ -64,8 +64,6 @@ body
     {
         list-style-type: armenian;
     }
-
-    // background-color: lightblue;
 }
 
 
@@ -223,26 +221,34 @@ body
 
     .author-profile
     {
+        width: 15vmin;
+        height: 15vmin;
+
+        float: left;
+
+        
         .author-profile-picture
         {
-            width: 15vmin;
-            height: 15vmin;
-    
+            width: 100%;
+            height: 100%;
+
+            margin: 0;
+
+            // margin-top: -100%;
+            
             object-fit: cover;
-
-            float: left;
-
         }
         .author-profile-hover
         {
             position: sticky;
 
-            // top: 
+            margin: 0;
+            padding: 0;
 
-            z-index: 2;
+            margin-top: -17.5vmin;
 
-            width: 15vmin;
-            height: 15vmin;
+            height: 100%;
+            width: 100%;
 
             background-color: rgba(37, 37, 37, 0.63);
 
@@ -250,15 +256,8 @@ body
 
             transition: opacity .3s;
 
-            text-align: center;
-
             p 
             {
-                align-items: center;
-                position: absolute;
-
-                margin-top: 6vw;
-
                 font-size: 2vmin;
 
                 color: white;
@@ -269,7 +268,7 @@ body
 
         .author-profile-hover:active
         {
-            border-style: solid;
+            // border-style: solid;
 
             border-width: medium;
             box-sizing: border-box;
