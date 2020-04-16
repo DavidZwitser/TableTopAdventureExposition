@@ -154,6 +154,12 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
                     <p id = 'project-overview-loading-text'>Loading...</p>
                 </div> */}
 
+                <div id = 'image-counter'>
+                    <p id = 'image-counter-current'>{this.state.currentImageIndex}</p>
+                    <p id = 'image-counter-separator'>/</p>
+                    <p id = 'image-counter-total'>{this.state.currentAuthor.amountOfImages + 1}</p>
+                </div>
+
                 <div id = 'project-overview-author-info' style = {{display: this.state.currentImageIndex == this.state.currentAuthor.amountOfImages + 1 ? 'block' : 'none'}}>
                     <img src={this.props.basePath + this.state.currentAuthor.name + '/profile_picture' + this.state.currentAuthor.profileExt} alt=""/>
                     
