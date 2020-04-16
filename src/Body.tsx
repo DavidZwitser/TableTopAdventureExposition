@@ -25,7 +25,7 @@ export default class Body extends React.Component<IContentProps>
 
                 <div id = 'nav-bar'>
                     <ul>
-                        <li><a href="#0">Home</a></li>
+                        <li><a href="/">Home</a></li>
                         <li><a href="" onClick = {() => alert("epic event")}>Challenge</a></li>
                     </ul>
 

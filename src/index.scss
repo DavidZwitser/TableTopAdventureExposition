@@ -71,7 +71,7 @@ body
 {
     position: absolute;
 
-    width: 70vw;
+    width: 68vw;
     height: 100vh;
 
     left: 15vw;
@@ -209,7 +209,7 @@ body
 
         object-fit: contain;
 
-        width: 70vw;
+        width: 68vw;
         height: 95vh;
     }
 
@@ -276,6 +276,8 @@ body
         width: 14vmin;
         height: 15vmin;
 
+        margin-bottom: .4vmin;
+
         .author-profile-picture
         {
             width: 100%;
@@ -285,6 +287,7 @@ body
             padding: 0;
             display: block;
 
+            border-radius: 1vmin;
 
             object-fit: cover;
         }
@@ -295,6 +298,8 @@ body
             overflow: hidden;
 
             display: block;
+
+            border-radius: 1vmin;
 
             margin: 0;
             padding: 0;
@@ -319,7 +324,9 @@ body
                 margin: 0;
                 padding: 0;
 
-                color: rgb(255, 255, 255);
+                margin: .5vmin;
+
+                color: rgba(255, 255, 255, 0.924);
                 font-weight: lighter;
             }
 

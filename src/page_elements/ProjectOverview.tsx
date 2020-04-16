@@ -9,14 +9,15 @@ export interface IProjectOverviewProps
 
 interface IProjectOverviewStates
 {
+    onHomePage: boolean;
     currentAuthor: IProfile;
     currentImageIndex: number;
 }
 
 export default class ProjectOverview extends React.Component<IProjectOverviewProps, IProjectOverviewStates>
 {
-    imagesToLoad: number;
     lastAuthor: IProfile;
+    authorIndex: number;
 
     constructor(props: IProjectOverviewProps)
     {
@@ -25,6 +26,7 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
         this.lastAuthor = this.props.profiles[0];
 
         this.state = {
+            onHomePage: window.location.hash == '',
             currentAuthor: this.props.profiles[Number(window.location.hash.split('#')[1])],
             currentImageIndex: 1
         };
@@ -35,7 +37,17 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
     {
         let hash: number = Number(window.location.hash.split('#')[1]);
 
+        if (window.location.hash == '')
+        {
+            this.setState({
+                onHomePage: true
+            });
+
+            return;
+        }
+
         this.setState({
+            onHomePage: false,
             currentAuthor: this.props.profiles[hash],
             currentImageIndex: 1
         });
@@ -45,8 +57,19 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
     {
         let nextAuthor: number = Number(window.location.hash.split('#')[1]) + dir;
 
+        if (nextAuthor == NaN)
+        {
+            if (dir == -1)
+            {
+                nextAuthor = this.props.profiles.length;
+            }
+            else if (dir == 1)
+            {
+                nextAuthor = 1;
+            }
+        }
         
-        if (nextAuthor < 0)
+        if (nextAuthor < 1)
         {
             nextAuthor = this.props.profiles.length - 1;
         }
@@ -113,32 +136,10 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
         window.removeEventListener('keydown', this.keyPressed.bind(this));
     }
 
-    private checkIfLoaded(): void
-    {
-        this.imagesToLoad --;
-
-        if (this.imagesToLoad <= 0)
-        {
-            document.getElementById('project-overview-loading-screen').style.opacity = '0';
-        }
-    }
+    
 
     render()
     {
-        if (document.getElementById('project-overview-loading-screen'))
-        {
-            if (this.state.currentAuthor.name !==  this.lastAuthor.name)
-            {
-                this.imagesToLoad = this.state.currentAuthor.amountOfImages;
-                document.getElementById('project-overview-loading-screen').style.opacity = '1';
-            }
-            else
-            {
-                document.getElementById('project-overview-loading-screen').style.opacity = '0';
-                document.getElementById('project-overview-loading-screen').style.display = 'none';
-            }
-        }
-
         if (document.getElementById('project-overview'))
         {
             document.getElementById('project-overview').scrollTop = 0;
@@ -146,20 +147,33 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
 
         this.lastAuthor = this.state.currentAuthor;
 
+
+        if (this.state.onHomePage == true)
+        {
+            return (
+                <div id = 'project-overview'>
+
+                    {/* Home page content*/}
+                    <h1>Hallo, ik ben de homepagina</h1>
+
+                    <p>Klik op de profielen hier rechts om hun werk te zien.</p>
+                    <p>Je kan je pijltjes gebruiken om door de pagina te navigeren.</p>
+
+                </div>
+            );
+        }
+
         return (
-            <div id = 'project-overview' onLoad = {() => this.checkIfLoaded()}>
+            <div id = 'project-overview'>
 
-
-                {/* <div id = 'project-overview-loading-screen' >
-                    <p id = 'project-overview-loading-text'>Loading...</p>
-                </div> */}
-
+                {/* Image counter */}
                 <div id = 'image-counter'>
                     <p id = 'image-counter-current'>{this.state.currentImageIndex}</p>
                     <p id = 'image-counter-separator'>/</p>
                     <p id = 'image-counter-total'>{this.state.currentAuthor.amountOfImages + 1}</p>
                 </div>
 
+                { /* Author info */ }
                 <div id = 'project-overview-author-info' style = {{display: this.state.currentImageIndex == this.state.currentAuthor.amountOfImages + 1 ? 'block' : 'none'}}>
                     <img src={this.props.basePath + this.state.currentAuthor.name + '/profile_picture' + this.state.currentAuthor.profileExt} alt=""/>
                     
@@ -174,12 +188,14 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
                     </p>
                 </div>
 
+                {/* Single image */}
                 <img 
                     src = { this.props.basePath + this.state.currentAuthor.name + '/project_pictures/' + this.state.currentImageIndex + this.state.currentAuthor.projExt }
                     className = 'project-images' 
                     style = {{display: this.state.currentImageIndex == this.state.currentAuthor.amountOfImages + 1 ? 'none' : 'block'}}
                 ></img>
 
+                {/* Nav buttons */}
                 <button id = 'project-overview-prev-button' onMouseUp = {() => this.getNextImage(-1)}>{"<"}</button>
                 <button id = 'project-overview-next-button' onMouseUp = {() => this.getNextImage(1)}>{">"}</button>
 
