@@ -112,12 +112,12 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
                     <img src={this.props.basePath + this.state.currentAuthor.name + '/profile_picture' + this.state.currentAuthor.profileExt} alt=""/>
                     
                     <p id = 'author-bio'>
-                        <h2 id = 'author-bio-title'>Bio</h2>
+                        <p id = 'author-bio-title'>Bio</p>
                         {this.state.currentAuthor.bio}
                     </p>
                     
                     <p id = 'author-verhaal'>
-                        <h2 id = 'author-verhaal-title'>Het verhaal</h2>
+                        <p id = 'author-verhaal-title'>Het verhaal</p>
                         {this.state.currentAuthor.verhaal}
                     </p>
                 </div>
