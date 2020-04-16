@@ -41,21 +41,59 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
         });
     }
 
+    public loopAuthors(dir: number): void
+    {
+        let nextAuthor: number = Number(window.location.hash.split('#')[1]) + dir;
+
+        
+        if (nextAuthor < 0)
+        {
+            nextAuthor = this.props.profiles.length - 1;
+        }
+        else if (nextAuthor > this.props.profiles.length - 1)
+        {
+            nextAuthor = 0;
+        }
+        
+        window.location.hash = nextAuthor + '';
+    }
+
+    private keyPressed(e: KeyboardEvent): void
+    {
+        switch(e.keyCode)
+        {
+            case 37:
+                this.getNextImage(-1);
+                break;
+
+            case 39:
+                this.getNextImage(1);
+                break;
+
+            case 38:
+                this.loopAuthors(-1);
+                break;
+
+            case 40:
+                this.loopAuthors(1);
+                break;
+
+            default:
+                return;
+        }
+    }
+
     private getNextImage(dir: number): void
     {
-        let newIndex: number;
+        let newIndex: number = this.state.currentImageIndex + dir;
 
-        if (this.state.currentImageIndex + dir <= 0)
+        if (newIndex <= 0)
         {
             newIndex = this.state.currentAuthor.amountOfImages;
         }
-        else if (this.state.currentImageIndex + dir > this.state.currentAuthor.amountOfImages)
+        else if (newIndex > this.state.currentAuthor.amountOfImages)
         {
             newIndex = 1;
-        }
-        else
-        {
-            newIndex = this.state.currentImageIndex + dir;
         }
 
         this.setState({
@@ -66,11 +104,13 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
     componentDidMount() 
     {
         window.addEventListener('hashchange', this.replaceImages.bind(this));
+        window.addEventListener('keydown', this.keyPressed.bind(this));
     }
 
     componentWillUnmount()
     {
         window.removeEventListener('hashchange', this.replaceImages.bind(this));
+        window.removeEventListener('keydown', this.keyPressed.bind(this));
     }
 
     private checkIfLoaded(): void
