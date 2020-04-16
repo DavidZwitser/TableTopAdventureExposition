@@ -89,9 +89,9 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
 
         if (newIndex <= 0)
         {
-            newIndex = this.state.currentAuthor.amountOfImages;
+            newIndex = this.state.currentAuthor.amountOfImages + 1;
         }
-        else if (newIndex > this.state.currentAuthor.amountOfImages)
+        else if (newIndex > this.state.currentAuthor.amountOfImages + 1)
         {
             newIndex = 1;
         }
@@ -154,7 +154,7 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
                     <p id = 'project-overview-loading-text'>Loading...</p>
                 </div> */}
 
-                {/* <div id = 'project-overview-author-info'>
+                <div id = 'project-overview-author-info' style = {{display: this.state.currentImageIndex == this.state.currentAuthor.amountOfImages + 1 ? 'block' : 'none'}}>
                     <img src={this.props.basePath + this.state.currentAuthor.name + '/profile_picture' + this.state.currentAuthor.profileExt} alt=""/>
                     
                     <p id = 'author-bio'>
@@ -166,13 +166,12 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
                     <p id = 'author-verhaal-title'>Het verhaal</p>
                     {this.state.currentAuthor.verhaal}
                     </p>
-                </div> */}
+                </div>
 
-                {/* {this.getImages()} */}
                 <img 
                     src = { this.props.basePath + this.state.currentAuthor.name + '/project_pictures/' + this.state.currentImageIndex + this.state.currentAuthor.projExt }
                     className = 'project-images' 
-                    // loading = 'lazy'
+                    style = {{display: this.state.currentImageIndex == this.state.currentAuthor.amountOfImages + 1 ? 'none' : 'block'}}
                 ></img>
 
                 <button id = 'project-overview-prev-button' onMouseUp = {() => this.getNextImage(-1)}>{"<"}</button>
