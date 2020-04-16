@@ -10,6 +10,7 @@ export interface IProjectOverviewProps
 interface IProjectOverviewStates
 {
     currentAuthor: IProfile;
+    currentImageIndex: number;
 }
 
 export default class ProjectOverview extends React.Component<IProjectOverviewProps, IProjectOverviewStates>
@@ -24,7 +25,8 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
         this.lastAuthor = this.props.profiles[0];
 
         this.state = {
-            currentAuthor: this.props.profiles[Number(window.location.hash.split('#')[1])]
+            currentAuthor: this.props.profiles[Number(window.location.hash.split('#')[1])],
+            currentImageIndex: 1
         };
 
     }
@@ -34,28 +36,31 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
         let hash: number = Number(window.location.hash.split('#')[1]);
 
         this.setState({
-            currentAuthor: this.props.profiles[hash]
+            currentAuthor: this.props.profiles[hash],
+            currentImageIndex: 1
         });
     }
 
-    private getImages(): JSX.Element[]
+    private getNextImage(dir: number): void
     {
-        let images: JSX.Element[] = [];
+        let newIndex: number;
 
-        for (let i = 1; i <= this.state.currentAuthor.amountOfImages; i++)
+        if (this.state.currentImageIndex + dir <= 0)
         {
-            images.push(
-                <img 
-                    src = { this.props.basePath + this.state.currentAuthor.name + '/project_pictures/' + i + this.state.currentAuthor.projExt }
-                    className = 'project-images' 
-                    key = {i}
-                    // loading = 'lazy'
-                ></img>
-            );
+            newIndex = this.state.currentAuthor.amountOfImages;
+        }
+        else if (this.state.currentImageIndex + dir > this.state.currentAuthor.amountOfImages)
+        {
+            newIndex = 1;
+        }
+        else
+        {
+            newIndex = this.state.currentImageIndex + dir;
         }
 
-
-        return images;
+        this.setState({
+            currentImageIndex: newIndex
+        });
     }
 
     componentDidMount() 
@@ -90,6 +95,7 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
             else
             {
                 document.getElementById('project-overview-loading-screen').style.opacity = '0';
+                document.getElementById('project-overview-loading-screen').style.display = 'none';
             }
         }
 
@@ -104,25 +110,33 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
             <div id = 'project-overview' onLoad = {() => this.checkIfLoaded()}>
 
 
-                <div id = 'project-overview-loading-screen' >
+                {/* <div id = 'project-overview-loading-screen' >
                     <p id = 'project-overview-loading-text'>Loading...</p>
-                </div>
+                </div> */}
 
-                <div id = 'project-overview-author-info'>
+                {/* <div id = 'project-overview-author-info'>
                     <img src={this.props.basePath + this.state.currentAuthor.name + '/profile_picture' + this.state.currentAuthor.profileExt} alt=""/>
                     
                     <p id = 'author-bio'>
-                        <p id = 'author-bio-title'>Bio</p>
-                        {this.state.currentAuthor.bio}
+                    <p id = 'author-bio-title'>Bio</p>
+                    {this.state.currentAuthor.bio}
                     </p>
                     
                     <p id = 'author-verhaal'>
-                        <p id = 'author-verhaal-title'>Het verhaal</p>
-                        {this.state.currentAuthor.verhaal}
+                    <p id = 'author-verhaal-title'>Het verhaal</p>
+                    {this.state.currentAuthor.verhaal}
                     </p>
-                </div>
+                </div> */}
 
-                {this.getImages()}
+                {/* {this.getImages()} */}
+                <img 
+                    src = { this.props.basePath + this.state.currentAuthor.name + '/project_pictures/' + this.state.currentImageIndex + this.state.currentAuthor.projExt }
+                    className = 'project-images' 
+                    // loading = 'lazy'
+                ></img>
+
+                <button id = 'project-overview-prev-button' onMouseUp = {() => this.getNextImage(-1)}>{"<"}</button>
+                <button id = 'project-overview-next-button' onMouseUp = {() => this.getNextImage(1)}>{">"}</button>
 
             </div>
         );

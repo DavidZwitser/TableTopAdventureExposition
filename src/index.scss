@@ -78,7 +78,7 @@ body
 
     left: 15vw;
 
-    overflow-y: scroll;
+    overflow-y: hidden;
     overflow-x: hidden;
 
     display: inline-block;
@@ -94,9 +94,11 @@ body
         transition: opacity .2s;
 
         width: 70vw;
-        height: 1000vh;
+        height: 100vh;
 
         background-color: rgb(240, 240, 240);
+
+        user-select: none;
 
         #project-overview-loading-text
         {
@@ -120,6 +122,7 @@ body
     #project-overview-author-info
     {
         margin-bottom: 5vmin;
+
         img 
         {
             width: 30vw;
@@ -166,16 +169,44 @@ body
 
     .project-images
     {
-        float: right;
+        vertical-align: middle;
 
         object-fit: contain;
 
-        align-items: center;
-
         width: 70vw;
-        max-height: 80vmin;
+        height: 95vh;
+    }
 
-        // margin: 1vmin;
+    button
+    {
+        position: absolute;
+
+        width: 5vmin;
+        height: 5vmin;
+
+        top: 50vh;
+        margin-top: -2.5vmin;
+
+        font-size: 3vmin;
+        font-weight: normal;
+
+        background-color: rgba(202, 202, 202, 0.445);
+
+
+        border-style: none;
+    }
+
+    #project-overview-prev-button
+    {
+        left: 0;
+    }
+
+    #project-overview-next-button
+    {
+        left: 100%;
+        
+        margin-left: -5vmin;
+
     }
 
 }
