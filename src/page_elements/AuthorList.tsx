@@ -54,7 +54,7 @@ export default class AuthorList extends React.Component<IAuthorListProps, IAutho
                         src = {this.props.basePath + this.props.authors[i].name + '/profile_picture' + this.props.authors[i].profileExt} 
                         className = 'author-profile-picture' 
                         key = {i}
-                        style = { i == this.state.activeAuthorIndex ? {opacity: .4} : {} }
+                        style = { i == this.state.activeAuthorIndex ? {opacity: .6} : {} }
                     ></img>
                     <div className = 'author-profile-hover' key = {i + 2000}> 
                         <p> 

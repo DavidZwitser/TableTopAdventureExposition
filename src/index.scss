@@ -11,7 +11,7 @@ body
 #top-bar
 {
     // position: fixed;
-
+    
     width: 100vw;
     height: 5vmin;
 
@@ -69,21 +69,58 @@ body
     height: 100vh;
     width: 15vw;
 
+    // left: -1vmin;
+
     font-size: 1.5vmin;
 
     li
     {
         list-style-type: armenian;
     }
+
+    #challenge-uitleg
+    {
+        // width: 30vw;
+        position: absolute;
+
+        top: 20vh;
+
+        width: 10vw;
+
+        font-weight: normal;
+    }
+
+    #credits
+    {
+        position: absolute;
+
+        width: 10vw;
+
+        top: 73vh;
+
+        font-weight: bolder;
+    }
 }
 
+#home-page
+{
+    margin-left: 2vmin;
+    margin-right: 2vmin;
+
+    font-size: 3vmin;
+
+    font-weight: lighter;
+
+
+    // width: 20vw;
+}
 
 #project-overview
 {
     position: absolute;
 
+    height: 92vh;
     width: 68vw;
-    height: 100vh;
 
     left: 15vw;
 
@@ -220,8 +257,10 @@ body
 
         object-fit: contain;
 
+        margin-top: 1vmin;
+
         width: 68vw;
-        height: 95vh;
+        height: 90vh;
     }
 
     button
@@ -235,15 +274,15 @@ body
         height: 5vmin;
 
         top: 50vh;
-        margin-top: -2.5vmin;
+        margin-top: -5vmin;
 
         font-size: 3vmin;
         font-weight: lighter;
 
         border-radius: .5vmin;
 
-        background-color: rgba(224, 224, 224, 0.164);
-        color: rgb(51, 51, 51);
+        background-color: rgba(255, 255, 255, 0.226);
+        color: rgb(32, 32, 32);
 
         border-style: none;
     }

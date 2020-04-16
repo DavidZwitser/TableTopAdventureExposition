@@ -57,7 +57,7 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
     {
         let nextAuthor: number = Number(window.location.hash.split('#')[1]) + dir;
 
-        if (!nextAuthor)
+        if (!nextAuthor && nextAuthor !== 0)
         {
             if (dir == -1)
             {
@@ -71,13 +71,14 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
         
         if (nextAuthor < 0)
         {
+            console.log(nextAuthor, ' looping');
             nextAuthor = this.props.profiles.length - 1;
         }
         else if (nextAuthor > this.props.profiles.length - 1)
         {
             nextAuthor = 0;
         }
-        
+
         window.location.hash = nextAuthor + '';
     }
 
@@ -154,10 +155,13 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
                 <div id = 'project-overview'>
 
                     {/* Home page content*/}
-                    <h1>Hallo, ik ben de homepagina</h1>
+                    <div id = 'home-page'>
+                        <h1>Uitleg</h1>
 
-                    <p>Klik op de profielen hier rechts om hun werk te zien.</p>
-                    <p>Je kan (als je dat wilt) je pijltjes toesten gebruiken om door de pagina te navigeren.</p>
+                        <p>Ook studenten van de School of Media van de Hogeschool Van de Kunsten Utrecht zaten gedwongen thuis. We hebben ze uitgenodigd om op hun keukentafel een wereld te bouwen, en vervolgens (met hun fototoestel) in die wereld op reis te gaan. In deze virtuele galerie presenteren ze de verhalen waarmee ze terug zijn gekomen. </p>
+                        {/* <p>Klik op de profielen hier rechts om hun werk te zien.</p>
+                        <p>Je kan (als je dat wilt) je pijltjes toesten gebruiken om door de pagina te navigeren.</p> */}
+                    </div>
 
                 </div>
             );
