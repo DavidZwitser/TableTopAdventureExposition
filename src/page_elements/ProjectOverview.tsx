@@ -57,19 +57,19 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
     {
         let nextAuthor: number = Number(window.location.hash.split('#')[1]) + dir;
 
-        if (nextAuthor == NaN)
+        if (!nextAuthor)
         {
             if (dir == -1)
             {
-                nextAuthor = this.props.profiles.length;
+                nextAuthor = this.props.profiles.length - 1;
             }
             else if (dir == 1)
             {
-                nextAuthor = 1;
+                nextAuthor = 0;
             }
         }
         
-        if (nextAuthor < 1)
+        if (nextAuthor < 0)
         {
             nextAuthor = this.props.profiles.length - 1;
         }
@@ -157,7 +157,7 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
                     <h1>Hallo, ik ben de homepagina</h1>
 
                     <p>Klik op de profielen hier rechts om hun werk te zien.</p>
-                    <p>Je kan je pijltjes gebruiken om door de pagina te navigeren.</p>
+                    <p>Je kan (als je dat wilt) je pijltjes toesten gebruiken om door de pagina te navigeren.</p>
 
                 </div>
             );
