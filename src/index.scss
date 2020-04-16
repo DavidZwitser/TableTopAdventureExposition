@@ -120,7 +120,7 @@ body
     position: absolute;
 
     height: 92vh;
-    width: 68vw;
+    width: 67vw;
 
     left: 15vw;
 
@@ -316,17 +316,23 @@ body
 {
     float: right;
 
-    width: 15vmin;
+    width: 18vmin;
     height: 100vh;
 
+    // background-color: rgba(141, 141, 141, 0.808);
+
     overflow: scroll;
+
+    border-radius: .2vmin;
 
     .author-profile
     {
         width: 14vmin;
-        height: 15vmin;
+        height: 14vmin;
 
-        margin-bottom: .4vmin;
+        margin-top: .7vmin;
+
+        margin-left: 2vmin;
 
         .author-profile-picture
         {

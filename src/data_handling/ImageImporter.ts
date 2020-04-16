@@ -6,6 +6,8 @@ export default class ImageImporter
     {
         require.resolve('../../images/loading.gif');
 
+        require.resolve('../../images/TheTableTopChallenge.pdf');
+
         require.resolve('../../images/projects/David_Zwitser/profile_picture.jpg');
         require.resolve('../../images/projects/David_Zwitser/project_pictures/1.jpg');
         require.resolve('../../images/projects/David_Zwitser/project_pictures/2.jpg');
