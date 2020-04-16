@@ -175,9 +175,22 @@ body
         height: 95vh;
     }
 
+    .project-images:hover + button + button
+    {
+        opacity: 1;
+    }
+
+    .project-images:hover + button
+    {
+        opacity: 1
+    }
+
     button
     {
         position: absolute;
+
+        transition: opacity .3s;
+        opacity: 0;
 
         width: 5vmin;
         height: 5vmin;
@@ -186,24 +199,31 @@ body
         margin-top: -2.5vmin;
 
         font-size: 3vmin;
-        font-weight: normal;
+        font-weight: lighter;
 
-        background-color: rgba(202, 202, 202, 0.445);
+        border-radius: .5vmin;
 
+        background-color: rgba(224, 224, 224, 0.226);
+        color: white;
 
         border-style: none;
     }
 
+    button:hover
+    {
+        opacity: 1;
+    }
+
     #project-overview-prev-button
     {
-        left: 0;
+        left: 2vw;
     }
 
     #project-overview-next-button
     {
         left: 100%;
         
-        margin-left: -5vmin;
+        margin-left: -7vmin;
 
     }
 
