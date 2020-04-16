@@ -19,6 +19,7 @@ export default class Body extends React.Component<IContentProps>
             <div id = 'container'>
 
                 <div id = 'top-bar'>
+                    <h1 id = 'title-home'>expositie</h1>
                     <h1 id = 'title-beelden'>beelden</h1>
                     <h1 id = 'title-makers' >makers</h1>
                 </div>
