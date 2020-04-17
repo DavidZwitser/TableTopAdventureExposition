@@ -8,6 +8,22 @@ body
     user-select: none;
 }
 
+#rotate-message
+{
+    width: 100vw;
+    height: 100vh;
+
+    p
+    {
+        font-size: 6vmin;
+        text-align: center;
+
+        height: 10vh;
+
+        margin-top: 50vh - 5vh;
+    }
+}
+
 #CLOSED
 {
     position: absolute;
@@ -19,7 +35,7 @@ body
 
     width: 100vw;
     height: 100vh;
-    background-color: rgb(253, 125, 125);
+    background-color: rgb(250, 81, 81);
 
     z-index: 2;
 
@@ -27,7 +43,7 @@ body
     {
         margin: 0;
 
-        margin-top: 15vh;
+        margin-top: 33vh;
 
         font-size: 20vmin;
         color: rgb(61, 61, 61);
@@ -41,7 +57,7 @@ body
 
         margin: 0;
 
-        margin-top: 45vh;
+        margin-top: 15vh;
     }
 
     #time-till-opening

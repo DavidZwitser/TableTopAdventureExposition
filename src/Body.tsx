@@ -21,6 +21,8 @@ export default class Body extends React.Component<IContentProps, IBodyProps>
     timeoutID: any;
     intervalID: any;
 
+    listeningForOrientationChange: boolean = false;
+
     targetDate: number = new Date('April 19, 2020, 16:00').getTime();
     // targetDate: number = new Date('April 17, 2020, 15:58:50').getTime();
 
@@ -88,31 +90,52 @@ export default class Body extends React.Component<IContentProps, IBodyProps>
 
     render()
     {
+
+        
         if (this.state.gesloten == true)
         {
             this.timeoutID = setTimeout(() => {
                 document.getElementById('date-till-opening').innerHTML = this.getTimeTillOpening();
             }, 0);
-    
+            
             this.intervalID = setInterval(() => {
                 document.getElementById('date-till-opening').innerHTML = this.getTimeTillOpening();
             }, 1000);
-
+            
             return (
-
-                <div id = 'container'>
-                    <div id = 'CLOSED'>
+                
+                <div id = 'CLOSED'>
             
-                        <p id = 'closed-gesloten'>GESLOTEN</p>
-                        <br/>
-                        <p id = 'opening-date'>Opening: 19 April 16.00</p>
-            
-                        <p id = 'date-till-opening'></p>
+                    <p id = 'closed-gesloten'>GESLOTEN</p>
+                    <br/>
+                    <p id = 'opening-date'>Opening: 19 April 16.00</p>
         
-                    </div>
-
+                    <p id = 'date-till-opening'></p>
+    
                 </div>
+
             );
+        }
+
+        if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) )
+        {
+            if (this.listeningForOrientationChange == false)
+            {
+                window.addEventListener('orientationchange', () => {
+                    this.forceUpdate();
+                });
+
+                this.listeningForOrientationChange = true;
+            }
+
+            if (window.innerWidth < window.innerHeight)
+            {
+                return (
+                    <div id = 'rotate-message'>
+                        <p>Uw apparaat roteren alstublieft<br/>Danku zeer</p>
+                    </div>
+                );
+            }
         }
 
         return (

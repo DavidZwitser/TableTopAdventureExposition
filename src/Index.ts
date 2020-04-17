@@ -132,7 +132,7 @@ class Main
                 profiles: this.profiles,
                 basePath: this.projectsBasePath
             }),
-            document.getElementById('content')
+            document.getElementById('wrapper')
         );
 
     }
