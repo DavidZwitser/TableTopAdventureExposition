@@ -87,8 +87,8 @@ class Main
             profileExt: '.jpg',
             projExt: '.jpg',
             amountOfImages: 16,
-            bio: "Heel Hollywood vertolkt in schaakstukken.",
-            verhaal: "IMT"
+            bio: "IMT",
+            verhaal: "Heel Hollywood vertolkt in schaakstukken."
         },     
         {
             name: 'Lisa_Hukker',
@@ -123,7 +123,7 @@ class Main
         new ImageImporter();
 
         let prntStr: string = '';
-        let pre: string = "require.resolve('../" + this.projectsBasePath;
+        let pre: string = "require.resolve('" + this.projectsBasePath;
         for (let i = 0; i < this.profiles.length; i++)
         {
             let currProf: IProfile = this.profiles[i];

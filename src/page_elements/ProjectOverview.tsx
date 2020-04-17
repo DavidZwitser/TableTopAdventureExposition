@@ -190,6 +190,41 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
             );
         }
 
+        if (this.state.currentImageIndex == this.state.currentAuthor.amountOfImages + 1)
+        {
+            let testImage = new Image();
+            let authorImagePath: string = this.props.basePath + this.state.currentAuthor.name + '/profile_picture' + this.state.currentAuthor.profileExt;
+
+            testImage.src = authorImagePath;
+
+            if (testImage.width == 0)
+            {
+                authorImagePath = this.props.basePath + this.state.currentAuthor.name + '/project_pictures/' + '1' + this.state.currentAuthor.projExt;
+            }
+
+            return(
+                <div id = 'project-overview'>
+
+                    { /* Author info */ }
+                    <div id = 'project-overview-author-info' >
+                        <img src= {authorImagePath} alt=""/>
+                        
+                        <div id = 'author-texts'>
+                            <p id = 'author-bio-title'>Biografie</p>
+                            {this.state.currentAuthor.bio}
+
+                            <p id = 'author-verhaal-title'>Het verhaal</p>
+                            {this.state.currentAuthor.verhaal}
+                        </div>
+                        
+                        <div id = 'images-overview'>
+                            {this.getAllImages()}
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
         return (
             <div id = 'project-overview'>
 
@@ -200,28 +235,11 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
                     <p id = 'image-counter-total'>{this.state.currentAuthor.amountOfImages + 1}</p>
                 </div>
 
-                { /* Author info */ }
-                <div id = 'project-overview-author-info' style = {{display: this.state.currentImageIndex == this.state.currentAuthor.amountOfImages + 1 ? 'block' : 'none'}}>
-                    <img src={this.props.basePath + this.state.currentAuthor.name + '/profile_picture' + this.state.currentAuthor.profileExt} alt=""/>
-                    
-                    <div id = 'author-texts'>
-                        <p id = 'author-bio-title'>Biografie</p>
-                        {this.state.currentAuthor.bio}
-
-                        <p id = 'author-verhaal-title'>Het verhaal</p>
-                        {this.state.currentAuthor.verhaal}
-                    </div>
-                    
-                    <div id = 'images-overview'>
-                        {this.getAllImages()}
-                    </div>
-                </div>
 
                 {/* Single image */}
                 <img 
                     src = { this.props.basePath + this.state.currentAuthor.name + '/project_pictures/' + this.state.currentImageIndex + this.state.currentAuthor.projExt }
                     className = 'project-images' 
-                    style = {{display: this.state.currentImageIndex == this.state.currentAuthor.amountOfImages + 1 ? 'none' : 'block'}}
                 ></img>
 
                 {/* Nav buttons */}
