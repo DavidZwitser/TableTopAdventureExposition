@@ -125,6 +125,26 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
         });
     }
 
+    private getAllImages(): JSX.Element[]
+    {
+        let images: JSX.Element[] = [];
+
+        for(let i = 1; i < this.state.currentAuthor.amountOfImages + 1; i++)
+        {
+            let currentImage: string = this.props.basePath + this.state.currentAuthor.name + '/project_pictures/' + i + this.state.currentAuthor.projExt;
+
+            images.push(
+                <img 
+                    src = {currentImage} 
+                    id = 'images-overview-image'
+                    style = {{width: 55 * 2 / this.state.currentAuthor.amountOfImages + 'vw'}}
+                />
+            );
+        }
+
+        return images;
+    }
+
     componentDidMount() 
     {
         window.addEventListener('hashchange', this.replaceImages.bind(this));
@@ -163,7 +183,7 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
                         <p>Je kan (als je dat wilt) je pijltjes toesten gebruiken om door de pagina te navigeren.</p> */}
 
                         <h1 id = 'tabletoptravels-logo'><span id = 'yellow'>T</span>able<span id = 'red'>T</span>op<span id = 'green'>T</span>ravels</h1>
-                        <p id = 'home-info-1'>Ook studenten van de School of Media van de Hogeschool van de Kunsten Utrecht zaten gedwongen thuis. We hebben ze uitgenodigd om op hun keukentafel een wereld te bouwen, en vervolgens (met hun fototoestel) in die wereld op reis te gaan. In deze virtuele galerie presenteren ze de verhalen waarmee ze terug zijn gekomen.<br/>Onze galerie vindt u hier. Graag nodigen we u uit voor de feestelijke opening van de expositie op zondag 19 april om 16.00. U kunt de opening bijwonen via <a target = 'blank' href="https://zoom.us/j/2265137624">ZOOM</a>. Inloop vanaf 15.45.</p>
+                        <p id = 'home-info-1'>Ook studenten van de School of Media van de Hogeschool van de Kunsten Utrecht zaten gedwongen thuis. We hebben ze uitgenodigd om op hun keukentafel een wereld te bouwen, en vervolgens (met hun fototoestel) in die wereld op reis te gaan. In deze virtuele galerie presenteren ze de verhalen waarmee ze terug zijn gekomen.<br/>Graag nodigen we u uit voor de feestelijke opening van de expositie op zondag 19 april om 16.00. U kunt de opening bijwonen via <a target = 'blank' href="https://zoom.us/j/2265137624">ZOOM</a>. Inloop vanaf 15.45.</p>
 
                         <h1 id = 'tabletoptravels-logo'><span id = 'yellow'>T</span>able<span id = 'red'>T</span>op<span id = 'green'>T</span>ravels</h1>
                         <p id = 'home-info-2'>Verhalend werk van:<br/> Merel Buvelot, Jasper Witteman, Daan Vroom, Vlinder Ruijg, Floor Kuiper, Lisa Hukker, Jade Hermans, Rosalie Duin, Doris van Ladesteijn, Alexander Bierling, Helen Brink, Ike Schulte, Renée den Heijer, Demian Haverkamp, Salomé de Jong, David Zwitser, Danae Grannetia, Danique Bijkerk, Julia Arbouw, Thijsje Laan, Chayren Zimmerman, Marije Makken, Femke Thoonen, Jorn Koomen, Naomi Aalbers, Koen Krommenhoek, Willem In ‘t Veld, Bas Lanting, Ajuna Braunschweiger, Maud Dekkers</p>
@@ -188,15 +208,17 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
                 <div id = 'project-overview-author-info' style = {{display: this.state.currentImageIndex == this.state.currentAuthor.amountOfImages + 1 ? 'block' : 'none'}}>
                     <img src={this.props.basePath + this.state.currentAuthor.name + '/profile_picture' + this.state.currentAuthor.profileExt} alt=""/>
                     
-                    <p id = 'author-bio'>
-                    <p id = 'author-bio-title'>Bio</p>
-                    {this.state.currentAuthor.bio}
-                    </p>
+                    <div id = 'author-texts'>
+                        <p id = 'author-bio-title'>Biografie</p>
+                        {this.state.currentAuthor.bio}
+
+                        <p id = 'author-verhaal-title'>Het verhaal</p>
+                        {this.state.currentAuthor.verhaal}
+                    </div>
                     
-                    <p id = 'author-verhaal'>
-                    <p id = 'author-verhaal-title'>Het verhaal</p>
-                    {this.state.currentAuthor.verhaal}
-                    </p>
+                    <div id = 'images-overview'>
+                        {this.getAllImages()}
+                    </div>
                 </div>
 
                 {/* Single image */}

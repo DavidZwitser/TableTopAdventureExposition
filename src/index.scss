@@ -14,8 +14,6 @@ body
 
     transition: opacity 2s, transform 1s;
 
-    // display: none;
-
     text-align: center;
     vertical-align: middle;
 
@@ -157,38 +155,15 @@ body
 
     #tabletoptravels-logo
     {
-        text-align: center;
 
         font-size: 6vmin;
 
-        #yellow
-        {
-            color: #ffff00;
-        }
-        #red
-        {
-            color: #d80000;
-        }
-        #green
-        {
-            color: #3ff200;
-        }
-    }
-
-    p
-    {
-        font-weight: bold;
-        color: #500050;
     }
 
     #home-info-2
     {
-        text-align: center;
+        user-select: text;
     }
-
-
-
-    // width: 20vw;
 }
 
 #project-overview
@@ -287,23 +262,42 @@ body
             margin: 2vmin;
 
             margin-bottom: 0;
+            margin-top: 3vmin;
 
-            max-height: 70vh;
-            object-fit: cover;
+            margin-left: 8vmin;
+
+            max-height: 60vh;
+            object-fit: contain;
+            // object-fit: cover;
         }
 
-        #author-bio-title
+        #author-texts
         {
-            font-weight: bolder;
-            font-size: 2.1vmin;
+            // display: inline-block;
+            float: right;
+
+            font-size: 1.4vmin;
+
+            width: 25vw;
+
+            margin-right: 2vmin;
+
+            #author-bio-title
+            {
+                font-weight: bolder;
+                font-size: 2.1vmin;
+            }
+
+            #author-verhaal-title
+            {
+                font-weight: bolder;
+                font-size: 2.1vmin;
+            }
         }
-        
-        #author-bio
+
+        #author-verhaal
         {
-
-            display: inline-block;
-
-            vertical-align: top;
+            float: right;
 
             font-size: 1.4vmin;
 
@@ -311,19 +305,36 @@ body
 
         }
 
-        #author-verhaal-title
+
+        #images-overview
         {
-            font-weight: bolder;
-            font-size: 2.1vmin;
-        }
+            // width: 50vw;
 
-        #author-verhaal
-        {
-            clear: left;
+            position: absolute;
 
-            margin: 2vmin;
+            width: 60vw;
+            margin-left: 6vw;
 
-            font-size: 1.4vmin;
+            margin-top: 5vmin;
+
+            grid-template-columns: 4;
+            grid-template-rows: 4;
+
+            vertical-align: bottom;
+
+            top: 62vmin;
+
+            #images-overview-image
+            {
+                
+                float: left;
+                margin: 0;
+                
+                width: 10vmin;
+                height: 10vmin;
+
+                object-fit: cover;
+            }
         }
     }
 
