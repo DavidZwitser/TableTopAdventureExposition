@@ -23,6 +23,9 @@ export default class Body extends React.Component<IContentProps, IBodyProps>
 
     listeningForOrientationChange: boolean = false;
 
+    lastSizeX: number = 0;
+    lastSizeY: number = 0;
+
     targetDate: number = new Date('April 19, 2020, 16:00').getTime();
     // targetDate: number = new Date('April 17, 2020, 15:58:50').getTime();
 
@@ -39,8 +42,6 @@ export default class Body extends React.Component<IContentProps, IBodyProps>
             distance = 0;
 
             window.location.hash = '';
-
-            console.log('U bent een hacker');
         }
 
         this.state = {
@@ -117,19 +118,22 @@ export default class Body extends React.Component<IContentProps, IBodyProps>
             );
         }
 
-        if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) )
+        if ( /Android|webOS|iPhone|iPod|IEMobile|Opera Mini/i.test(navigator.userAgent) )
         {
             if (this.listeningForOrientationChange == false)
             {
-                window.addEventListener('orientationchange', () => {
+                window.addEventListener('resize', () => {
                     this.forceUpdate();
                 });
 
                 this.listeningForOrientationChange = true;
             }
 
-            if (window.innerWidth < window.innerHeight)
+            if (window.innerWidth < window.innerHeight && this.lastSizeX !== window.innerWidth && this.lastSizeY !== window.innerHeight)
             {
+                this.lastSizeX = window.innerWidth;
+                this.lastSizeY = window.innerHeight;
+
                 return (
                     <div id = 'rotate-message'>
                         <p>Uw apparaat roteren alstublieft<br/>Danku zeer</p>

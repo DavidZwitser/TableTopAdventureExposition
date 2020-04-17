@@ -352,6 +352,14 @@ body
                 object-fit: cover;
             }
         }
+
+        @media (orientation: portrait)
+        {
+            #images-overview
+            {
+                top: 70vh;
+            }
+        }
     }
 
     .project-images
