@@ -46,12 +46,23 @@ export default class AuthorList extends React.Component<IAuthorListProps, IAutho
     {
         let images: JSX.Element[] = [];
 
+        
         for (let i: number = 0; i < this.props.authors.length; i++)
         {
+            let testImage = new Image();
+            let authorPath: string = this.props.basePath + this.props.authors[i].name + '/profile_picture' + this.props.authors[i].profileExt;
+
+            testImage.src = authorPath;
+
+            if (testImage.width == 0)
+            {
+                authorPath = this.props.basePath + this.props.authors[i].name + '/project_pictures/' + '1' + this.props.authors[i].projExt;
+            }
+            
             images.push(
                 <div className = 'author-profile' onClick = {() => location.hash = i + ''} key = {i - 2000}>
                     <img 
-                        src = {this.props.basePath + this.props.authors[i].name + '/profile_picture' + this.props.authors[i].profileExt} 
+                        src = {authorPath} 
                         className = 'author-profile-picture' 
                         key = {i}
                         style = { i == this.state.activeAuthorIndex ? {opacity: .6} : {} }

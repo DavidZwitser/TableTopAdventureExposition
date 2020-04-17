@@ -138,6 +138,7 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
                     src = {currentImage} 
                     id = 'images-overview-image'
                     style = {{width: 55 * 2 / this.state.currentAuthor.amountOfImages + 'vw'}}
+                    loading = 'lazy'
                 />
             );
         }
