@@ -167,6 +167,8 @@ body
     margin-left: 2vmin;
     margin-right: 2vmin;
 
+    padding-top: 4vmin;
+
 
     font-size: 2.2vmin;
     // font-size: 2vmin;
@@ -177,6 +179,8 @@ body
     {
 
         font-size: 6vmin;
+
+        margin: 0;
 
     }
 
@@ -190,8 +194,21 @@ body
 {
     #home-page
     {
-        margin-left: 5vmin;
-        width: 30vw;
+        // margin-left: 16vw;
+
+        text-align: left;
+        // float: center;
+        width: 32vw;
+        // column-width: 30vw;
+
+        // height: 30vh;
+
+        // margin-top: 5vmin;
+
+        #tabletoptravels-logo
+        {
+            // margin-top: 9vmin;
+        }
     }
 }
 
@@ -202,7 +219,7 @@ body
     height: 92vh;
     width: 67vw;
 
-    left: 15vw;
+    left: 16vw;
 
     overflow-y: hidden;
     overflow-x: hidden;

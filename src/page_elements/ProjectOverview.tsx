@@ -112,13 +112,18 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
     {
         let newIndex: number = this.state.currentImageIndex + dir;
 
-        if (newIndex <= 0)
+        // if (newIndex <= 0)
+        // {
+        //     newIndex = this.state.currentAuthor.amountOfImages + 1;
+        // }
+        // else if (newIndex > this.state.currentAuthor.amountOfImages + 1)
+        // {
+        //     newIndex = 1;
+        // }
+
+        if (newIndex <= 0 || newIndex > this.state.currentAuthor.amountOfImages + 1)
         {
-            newIndex = this.state.currentAuthor.amountOfImages + 1;
-        }
-        else if (newIndex > this.state.currentAuthor.amountOfImages + 1)
-        {
-            newIndex = 1;
+            newIndex = this.state.currentImageIndex;
         }
 
         this.setState({
