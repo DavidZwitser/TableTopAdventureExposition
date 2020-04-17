@@ -36,7 +36,6 @@ export default class Body extends React.Component<IContentProps, IBodyProps>
         let now = new Date().getTime();
         let distance = this.targetDate - now;
 
-        console.log(window.location.hash);
         if (window.location.hash == '#sesam-open-u')
         {
             distance = 0;
@@ -149,7 +148,7 @@ export default class Body extends React.Component<IContentProps, IBodyProps>
                 <div id = 'top-bar'>
                     <h1 id = 'title-home'>expositie</h1>
                     <h1 id = 'title-beelden'>beelden</h1>
-                    <h1 id = 'title-makers' >makers</h1>
+                    <h1 id = 'title-makers' >projecten</h1>
                 </div>
 
                 <div id = 'nav-bar'>

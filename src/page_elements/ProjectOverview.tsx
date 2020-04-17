@@ -71,7 +71,6 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
         
         if (nextAuthor < 0)
         {
-            console.log(nextAuthor, ' looping');
             nextAuthor = this.props.profiles.length - 1;
         }
         else if (nextAuthor > this.props.profiles.length - 1)
@@ -84,6 +83,8 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
 
     private keyPressed(e: KeyboardEvent): void
     {
+        e.preventDefault();
+
         switch(e.keyCode)
         {
             case 37:
@@ -192,18 +193,22 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
 
         if (this.state.currentImageIndex == this.state.currentAuthor.amountOfImages + 1)
         {
-            let testImage = new Image();
             let authorImagePath: string = this.props.basePath + this.state.currentAuthor.name + '/profile_picture' + this.state.currentAuthor.profileExt;
 
-            testImage.src = authorImagePath;
-
-            if (testImage.width == 0)
+            if (this.state.currentAuthor.hasNoProfilePicture == true)
             {
                 authorImagePath = this.props.basePath + this.state.currentAuthor.name + '/project_pictures/' + '1' + this.state.currentAuthor.projExt;
             }
 
             return(
                 <div id = 'project-overview'>
+
+                    {/* Image counter */}
+                    <div id = 'image-counter'>
+                        <p id = 'image-counter-current'>{this.state.currentImageIndex}</p>
+                        <p id = 'image-counter-separator'>/</p>
+                        <p id = 'image-counter-total'>{this.state.currentAuthor.amountOfImages + 1}</p>
+                    </div>
 
                     { /* Author info */ }
                     <div id = 'project-overview-author-info' >

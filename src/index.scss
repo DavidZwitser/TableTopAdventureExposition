@@ -436,6 +436,20 @@ body
 
 }
 
+// @media (min-aspect-ratio: 3/2)
+// {
+//     #project-overview
+//     {
+//         width: 73vw;
+
+//         .project-images
+//         {
+//             width: 73vw;
+//         }
+//     }
+// }
+
+
 #project-overview:hover button
 {
     opacity: 1;
@@ -448,11 +462,11 @@ body
     width: 18vmin;
     height: 95vh;
 
-    // background-color: rgba(141, 141, 141, 0.808);
+    // background-color: rgba(211, 211, 211, 0.808);
 
     overflow: scroll;
 
-    border-radius: .2vmin;
+    // border-radius: .2vmin;
 
     .author-profile
     {
@@ -463,6 +477,8 @@ body
 
         margin-left: 2vmin;
 
+        // background-color: lightgrey;
+
         .author-profile-picture
         {
             width: 100%;
@@ -472,7 +488,7 @@ body
             padding: 0;
             display: block;
 
-            border-radius: 1vmin;
+            border-radius: .8vmin;
 
             object-fit: cover;
         }
@@ -484,7 +500,7 @@ body
 
             display: block;
 
-            border-radius: 1vmin;
+            border-radius: .8vmin;
 
             margin: 0;
             padding: 0;
@@ -506,13 +522,12 @@ body
 
                 vertical-align: middle;
 
-                margin: 0;
                 padding: 0;
 
-                margin: .5vmin;
+                margin: .7vmin;
 
                 color: rgba(255, 255, 255, 0.924);
-                font-weight: lighter;
+                font-weight: bolder;
             }
 
         }

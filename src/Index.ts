@@ -10,6 +10,7 @@ import Body, { IContentProps } from './Body';
 export interface IProfile
 {
     name: string;
+    hasNoProfilePicture?: boolean,
     profileExt: string;
     projExt: string;
     amountOfImages: number;
@@ -86,6 +87,7 @@ class Main
             name: 'Koen_Krommenhoek',
             profileExt: '.jpg',
             projExt: '.jpg',
+            hasNoProfilePicture: true,
             amountOfImages: 16,
             bio: "IMT",
             verhaal: "Heel Hollywood vertolkt in schaakstukken."
@@ -102,6 +104,7 @@ class Main
             name: 'Marije_Makken',
             profileExt: '.jpg',
             projExt: '.jpg',
+            hasNoProfilePicture: true,
             amountOfImages: 13,
             bio: "Fotografie jaar 1",
             verhaal: "Het verhaal dat ik heb willen verbeelden gaat over hoe de inkt van een verhaal wegvaagt en de woorden niets meer kunnen betekenen."
@@ -122,23 +125,23 @@ class Main
     {
         new ImageImporter();
 
-        let prntStr: string = '';
-        let pre: string = "require.resolve('" + this.projectsBasePath;
-        for (let i = 0; i < this.profiles.length; i++)
-        {
-            let currProf: IProfile = this.profiles[i];
+        // let prntStr: string = '';
+        // let pre: string = "require.resolve('" + this.projectsBasePath;
+        // for (let i = 0; i < this.profiles.length; i++)
+        // {
+        //     let currProf: IProfile = this.profiles[i];
 
-            prntStr += pre + currProf.name + '/profile_picture' + currProf.profileExt + "');\n";
+        //     prntStr += pre + currProf.name + '/profile_picture' + currProf.profileExt + "');\n";
 
-            for(let y = 1; y <= currProf.amountOfImages; y++)
-            {
-                prntStr += pre + currProf.name + '/project_pictures/' + y + currProf.projExt + "');\n";
-            }
+        //     for(let y = 1; y <= currProf.amountOfImages; y++)
+        //     {
+        //         prntStr += pre + currProf.name + '/project_pictures/' + y + currProf.projExt + "');\n";
+        //     }
 
-            prntStr += '\n';
-        }
+        //     prntStr += '\n';
+        // }
 
-        console.log(prntStr);
+        // console.log(prntStr);
 
         ReactDOM.render(
             React.createElement(Body, <IContentProps> {
