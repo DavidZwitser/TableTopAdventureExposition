@@ -4,8 +4,6 @@ export default class ImageImporter
 {
     constructor() 
     {
-        require.resolve('../../images/loading.gif');
-
         require.resolve('../../images/TheTableTopChallenge.pdf');
 
         require.resolve('../../images/projects/David_Zwitser/profile_picture.jpg');

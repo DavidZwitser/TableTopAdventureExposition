@@ -156,11 +156,18 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
 
                     {/* Home page content*/}
                     <div id = 'home-page'>
-                        <h1>Uitleg</h1>
+                        {/* <h1>Uitleg</h1>
 
-                        <p>Ook studenten van de School of Media van de Hogeschool Van de Kunsten Utrecht zaten gedwongen thuis. We hebben ze uitgenodigd om op hun keukentafel een wereld te bouwen, en vervolgens (met hun fototoestel) in die wereld op reis te gaan. In deze virtuele galerie presenteren ze de verhalen waarmee ze terug zijn gekomen. </p>
+                        <p>Ook studenten van de School of Media van de Hogeschool Van de Kunsten Utrecht zaten gedwongen thuis. We hebben ze uitgenodigd om op hun keukentafel een wereld te bouwen, en vervolgens (met hun fototoestel) in die wereld op reis te gaan. In deze virtuele galerie presenteren ze de verhalen waarmee ze terug zijn gekomen. </p> */}
                         {/* <p>Klik op de profielen hier rechts om hun werk te zien.</p>
                         <p>Je kan (als je dat wilt) je pijltjes toesten gebruiken om door de pagina te navigeren.</p> */}
+
+                        <h1 id = 'tabletoptravels-logo'><span id = 'yellow'>T</span>able<span id = 'red'>T</span>op<span id = 'green'>T</span>ravels</h1>
+                        <p id = 'home-info-1'>Ook studenten van de School of Media van de Hogeschool van de Kunsten Utrecht zaten gedwongen thuis. We hebben ze uitgenodigd om op hun keukentafel een wereld te bouwen, en vervolgens (met hun fototoestel) in die wereld op reis te gaan. In deze virtuele galerie presenteren ze de verhalen waarmee ze terug zijn gekomen.<br/>Onze galerie vindt u hier. Graag nodigen we u uit voor de feestelijke opening van de expositie op zondag 19 april om 16.00. U kunt de opening bijwonen via <a target = 'blank' href="https://zoom.us/j/2265137624">ZOOM</a>. Inloop vanaf 15.45.</p>
+
+                        <h1 id = 'tabletoptravels-logo'><span id = 'yellow'>T</span>able<span id = 'red'>T</span>op<span id = 'green'>T</span>ravels</h1>
+                        <p id = 'home-info-2'>Verhalend werk van:<br/> Merel Buvelot, Jasper Witteman, Daan Vroom, Vlinder Ruijg, Floor Kuiper, Lisa Hukker, Jade Hermans, Rosalie Duin, Doris van Ladesteijn, Alexander Bierling, Helen Brink, Ike Schulte, Renée den Heijer, Demian Haverkamp, Salomé de Jong, David Zwitser, Danae Grannetia, Danique Bijkerk, Julia Arbouw, Thijsje Laan, Chayren Zimmerman, Marije Makken, Femke Thoonen, Jorn Koomen, Naomi Aalbers, Koen Krommenhoek, Willem In ‘t Veld, Bas Lanting, Ajuna Braunschweiger, Maud Dekkers</p>
+
                     </div>
 
                 </div>
