@@ -26,8 +26,8 @@ export default class Body extends React.Component<IContentProps, IBodyProps>
     lastSizeX: number = 0;
     lastSizeY: number = 0;
 
-    targetDate: number = new Date('April 19, 2020, 16:00').getTime();
-    // targetDate: number = new Date('April 17, 2020, 15:58:50').getTime();
+    // targetDate: number = new Date('April 19, 2020, 16:00').getTime();
+    targetDate: number = new Date('April 17, 2020, 15:58:50').getTime();
 
     constructor(props: IContentProps)
     {

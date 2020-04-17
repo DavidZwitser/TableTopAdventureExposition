@@ -176,11 +176,6 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
 
                     {/* Home page content*/}
                     <div id = 'home-page'>
-                        {/* <h1>Uitleg</h1>
-
-                        <p>Ook studenten van de School of Media van de Hogeschool Van de Kunsten Utrecht zaten gedwongen thuis. We hebben ze uitgenodigd om op hun keukentafel een wereld te bouwen, en vervolgens (met hun fototoestel) in die wereld op reis te gaan. In deze virtuele galerie presenteren ze de verhalen waarmee ze terug zijn gekomen. </p> */}
-                        {/* <p>Klik op de profielen hier rechts om hun werk te zien.</p>
-                        <p>Je kan (als je dat wilt) je pijltjes toesten gebruiken om door de pagina te navigeren.</p> */}
 
                         <h1 id = 'tabletoptravels-logo'><span id = 'yellow'>T</span>able<span id = 'red'>T</span>op<span id = 'green'>T</span>ravels</h1>
                         <p id = 'home-info-1'>Ook studenten van de School of Media van de Hogeschool van de Kunsten Utrecht zaten gedwongen thuis. We hebben ze uitgenodigd om op hun keukentafel een wereld te bouwen, en vervolgens (met hun fototoestel) in die wereld op reis te gaan. In deze virtuele galerie presenteren ze de verhalen waarmee ze terug zijn gekomen.<br/>Graag nodigen we u uit voor de feestelijke opening van de expositie op zondag 19 april om 16.00. U kunt de opening bijwonen via <a target = 'blank' href="https://zoom.us/j/2265137624">ZOOM</a>. Inloop vanaf 15.45.</p>
