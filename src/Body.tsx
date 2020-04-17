@@ -10,14 +10,115 @@ export interface IContentProps
     basePath: string;
 }
 
-export default class Body extends React.Component<IContentProps>
+interface IBodyProps
 {
+    gesloten: boolean;
+}
+
+
+export default class Body extends React.Component<IContentProps, IBodyProps>
+{
+    timeoutID: any;
+    intervalID: any;
+
+    targetDate: number = new Date('April 19, 2020, 16:00').getTime();
+    // targetDate: number = new Date('April 17, 2020, 15:58:50').getTime();
+
+    constructor(props: IContentProps)
+    {
+        super(props);
+
+        let now = new Date().getTime();
+        let distance = this.targetDate - now;
+
+        console.log(window.location.hash);
+        if (window.location.hash == '#sesam-open-u')
+        {
+            distance = 0;
+
+            window.location.hash = '';
+
+            console.log('U bent een hacker');
+        }
+
+        this.state = {
+            gesloten: distance > 0
+        };
+    }
+
+    openPageSkrr(): void
+    {
+        clearTimeout(this.timeoutID);
+        clearInterval(this.intervalID);
+
+        document.getElementById('date-till-opening').style.opacity = '0';
+
+        let aniObject: HTMLDivElement = document.getElementById('CLOSED') as HTMLDivElement;
+        aniObject.style.opacity = '0';
+        aniObject.style.transform = 'rotate(360deg)';
+
+        aniObject.addEventListener('transitionend', () => {
+
+            this.setState({
+                gesloten: false
+            });
+
+        });
+    }
+
+    getTimeTillOpening(): string
+    {
+        let now = new Date().getTime();
+        let distance = this.targetDate - now;
+
+        let days: number = Math.floor(distance / (1000 * 60 * 60 * 24));;
+        let hours: number = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes: number = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds: number = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        let openingTime = days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's';
+        
+        if (distance <= 1000)
+        {
+            this.openPageSkrr();
+        }
+
+        return openingTime;
+    }
+
     render()
     {
+        if (this.state.gesloten == true)
+        {
+            this.timeoutID = setTimeout(() => {
+                document.getElementById('date-till-opening').innerHTML = this.getTimeTillOpening();
+            }, 0);
+    
+            this.intervalID = setInterval(() => {
+                document.getElementById('date-till-opening').innerHTML = this.getTimeTillOpening();
+            }, 1000);
+
+            return (
+
+                <div id = 'container'>
+                    <div id = 'CLOSED'>
+            
+                        <p id = 'closed-gesloten'>GESLOTEN</p>
+                        <br/>
+                        <p id = 'opening-date'>Opening: 19 April 16.00</p>
+            
+                        <p id = 'date-till-opening'></p>
+        
+                    </div>
+
+                </div>
+            );
+        }
+
         return (
 
             <div id = 'container'>
-                
+
                 <div id = 'top-bar'>
                     <h1 id = 'title-home'>expositie</h1>
                     <h1 id = 'title-beelden'>beelden</h1>

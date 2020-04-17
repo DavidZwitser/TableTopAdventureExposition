@@ -8,6 +8,50 @@ body
     user-select: none;
 }
 
+#CLOSED
+{
+    position: absolute;
+
+    transition: opacity 2s, transform 1s;
+
+    // display: none;
+
+    text-align: center;
+    vertical-align: middle;
+
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(253, 125, 125);
+
+    z-index: 2;
+
+    #closed-gesloten
+    {
+        margin: 0;
+
+        margin-top: 15vh;
+
+        font-size: 20vmin;
+        color: rgb(61, 61, 61);
+    }
+
+    #opening-date
+    {
+        // font-size: 2vmin;
+
+        color: rgb(61, 61, 61);
+
+        margin: 0;
+
+        margin-top: 45vh;
+    }
+
+    #time-till-opening
+    {
+        font-weight: bolder;
+    }
+}
+
 #top-bar
 {
     // position: fixed;
