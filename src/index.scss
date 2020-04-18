@@ -1,3 +1,5 @@
+@import '../images/fotns/bahnschrift/style.css';
+
 body
 {
     margin: 0;
@@ -6,7 +8,10 @@ body
     overflow: hidden;
 
     user-select: none;
+
+    font-family: 'Bahnschrift Regular';
 }
+
 
 #rotate-message
 {
@@ -28,7 +33,7 @@ body
 {
     position: absolute;
 
-    transition: opacity 2s, transform 1s;
+    transition: all 1s;
 
     text-align: center;
     vertical-align: middle;
@@ -63,6 +68,18 @@ body
     #time-till-opening
     {
         font-weight: bolder;
+    }
+
+    #opening-party
+    {
+        position: absolute;
+
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+
+        object-fit: cover;
     }
 }
 
@@ -184,9 +201,18 @@ body
 
     }
 
+    #home-info-1
+    {
+        font-size: 2vmin;
+    }
+
     #home-info-2
     {
         user-select: text;
+        font-size: 3vmin;
+
+        font-weight: bolder;
+        
     }
 }
 
@@ -194,21 +220,30 @@ body
 {
     #home-page
     {
-        // margin-left: 16vw;
-
-        text-align: left;
-        // float: center;
-        width: 32vw;
-        // column-width: 30vw;
-
-        // height: 30vh;
-
-        // margin-top: 5vmin;
-
-        #tabletoptravels-logo
+        padding-right: 14vw;
+        padding-left: 14vw;
+        
+        text-align: center;
+        .logo1
         {
-            // margin-top: 9vmin;
+            // text-align: center;
         }
+
+        .logo2
+        {
+            // padding-top: 20vmin;
+        }
+
+        #home-info-1
+        {
+            margin-bottom: 5vmin;
+        }
+
+        #home-info-2
+        {
+            text-align: center;
+        }
+
     }
 }
 
@@ -339,6 +374,29 @@ body
             {
                 font-weight: bolder;
                 font-size: 2.1vmin;
+            }
+
+            #socials
+            {
+                a
+                {
+                    color: black;
+                }
+                
+                a:visited
+                {
+                    color: black;
+                }
+            }
+
+            .socials-0
+            {
+                margin-top: 2vmin;
+                margin-bottom: 0;
+            }
+            .socials-1
+            {
+                margin-top: .1vmin;
             }
         }
 

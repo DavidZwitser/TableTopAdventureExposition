@@ -27,7 +27,7 @@ export default class Body extends React.Component<IContentProps, IBodyProps>
     lastSizeY: number = 0;
 
     targetDate: number = new Date('April 19, 2020, 16:00').getTime();
-    // targetDate: number = new Date('April 17, 2020, 15:58:50').getTime();
+    // targetDate: number = new Date('April 18, 2020, 16:04:20').getTime();
 
     constructor(props: IContentProps)
     {
@@ -55,11 +55,21 @@ export default class Body extends React.Component<IContentProps, IBodyProps>
 
         document.getElementById('date-till-opening').style.opacity = '0';
 
+        document.getElementById('opening-party').style.opacity = '1';
+        
         let aniObject: HTMLDivElement = document.getElementById('CLOSED') as HTMLDivElement;
-        aniObject.style.opacity = '0';
-        aniObject.style.transform = 'rotate(360deg)';
+
+        setTimeout( () => {
+
+            aniObject.style.opacity = '0';
+            aniObject.style.transform = 'scale(2)';
+            
+        }, 800);
 
         aniObject.addEventListener('transitionend', () => {
+
+            aniObject.style.opacity = '1';
+            aniObject.style.transform = '';
 
             this.setState({
                 gesloten: false
@@ -111,6 +121,8 @@ export default class Body extends React.Component<IContentProps, IBodyProps>
                     <p id = 'opening-date'>Opening: 19 April 16.00</p>
         
                     <p id = 'date-till-opening'></p>
+
+                    <img src="../../images/200.gif" id = 'opening-party' style = {{opacity: 0}}/>
     
                 </div>
 

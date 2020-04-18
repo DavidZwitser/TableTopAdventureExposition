@@ -152,6 +152,35 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
         return images;
     }
 
+    private getSocials(socials: string[]): JSX.Element[]
+    {
+        let elements: JSX.Element[] = [];
+
+        if (socials == undefined) { return null; }
+
+        for (let i = 0; i < socials.length; i++)
+        {
+            let social: string = socials[i];
+            let href: string = social;
+
+            if (social.split('@')[0] == '')
+            {
+                href = 'https://www.instagram.com/' + social.split('@')[1];
+            }
+
+            if (social.split('mail.com')[1] == '')
+            {
+                href = 'mailto:' + social;
+            }
+
+            elements.push(
+                <p id = 'socials' className = {'socials-' + i}><a target = 'blank' href = {href}>{social}</a></p>
+            );
+        }
+
+        return elements;
+    }
+
     componentDidMount() 
     {
         window.addEventListener('hashchange', this.replaceImages.bind(this));
@@ -184,10 +213,10 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
                     {/* Home page content*/}
                     <div id = 'home-page'>
 
-                        <h1 id = 'tabletoptravels-logo'><span id = 'yellow'>T</span>able<span id = 'red'>T</span>op<span id = 'green'>T</span>ravels</h1>
+                        <h1 id = 'tabletoptravels-logo' className = 'logo1'><span id = 'yellow'>T</span>able<span id = 'red'>T</span>op<span id = 'green'>T</span>ravels</h1>
                         <p id = 'home-info-1'>Ook studenten van de School of Media van de Hogeschool van de Kunsten Utrecht zaten gedwongen thuis. We hebben ze uitgenodigd om op hun keukentafel een wereld te bouwen, en vervolgens (met hun fototoestel) in die wereld op reis te gaan. In deze virtuele galerie presenteren ze de verhalen waarmee ze terug zijn gekomen.<br/>Graag nodigen we u uit voor de feestelijke opening van de expositie op zondag 19 april om 16.00. U kunt de opening bijwonen via <a target = 'blank' href="https://zoom.us/j/2265137624">ZOOM</a>. Inloop vanaf 15.45.</p>
 
-                        <h1 id = 'tabletoptravels-logo'><span id = 'yellow'>T</span>able<span id = 'red'>T</span>op<span id = 'green'>T</span>ravels</h1>
+                        <h1 id = 'tabletoptravels-logo' className = 'logo2'><span id = 'yellow'>T</span>able<span id = 'red'>T</span>op<span id = 'green'>T</span>ravels</h1>
                         <p id = 'home-info-2'>Verhalend werk van:<br/> Merel Buvelot, Jasper Witteman, Daan Vroom, Vlinder Ruijg, Floor Kuiper, Lisa Hukker, Jade Hermans, Rosalie Duin, Doris van Ladesteijn, Alexander Bierling, Helen Brink, Ike Schulte, Renée den Heijer, Demian Haverkamp, Salomé de Jong, David Zwitser, Danae Grannetia, Danique Bijkerk, Julia Arbouw, Thijsje Laan, Chayren Zimmerman, Marije Makken, Femke Thoonen, Jorn Koomen, Naomi Aalbers, Koen Krommenhoek, Willem In ‘t Veld, Bas Lanting, Ajuna Braunschweiger, Maud Dekkers</p>
 
                     </div>
@@ -225,6 +254,8 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
 
                             <p id = 'author-verhaal-title'>Het verhaal</p>
                             {this.state.currentAuthor.verhaal}
+
+                            {this.getSocials(this.state.currentAuthor.socials)}
                         </div>
                         
                         <div id = 'images-overview'>

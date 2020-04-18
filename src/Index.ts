@@ -38,16 +38,25 @@ class Main
             projExt: '.jpg',
             amountOfImages: 16,
             bio: 'Hallo, ik ben Daan Vroom. Ik ben 19 jaar en studeer Illustratie. \n \n Ik heb mijzelf erg vermaakt gedurende de lessen TableTopTraveling. Ik begon de lessen met enthousiasme in het maken van de omgeving en sfeer. en hier mee experimenteren door middel van fotografie. Met een van deze beelden ben ik vervolgens verder gegaan in een verhaal. Omdat mijn verhaal zich vooral focust op de karakters en verhoudingen hiervan, heb ik vooral donkere omgevingen gemaakt. Zodoende kon ik met licht spanning aanbrengen.Het was aanzienlijk lastiger dan gedacht om met een kat te werken. Na drie draaidagen was de topacteur het wel zat.',
-            verhaal: 'In mijn verhaal zie je Obi-Wan Kenobi die een confrontatie zoekt met Darth Vader, echter valt hij in een kuil waar een reusachtig monster in blijkt te zitten. Het monster slikt hem in een keer op. Obi-Wan weet zich een weg naar buiten te vinden door middel van zijn Lightsaber. eenmaal buiten wordt hij geconfronteerd door Vader.'
+            verhaal: 'Het rode beestje uit de andere wereld wordt verliefd op meneer tape maar is onzeker, alleen red meneer tape het niet in de andere wereld.. Het rode beestje gaat verder opzoek naar een nieuwe liefde die hij aan het eind na vele tegenslagen toch vindt.',
         },
         {
             name: 'David_Zwitser',
             profileExt: '.jpg',
             projExt: '.jpg',
             amountOfImages: 16,
+            bio: "Hoi, ik ben Demian Haverkamp! 21 jaar oud en ik studeer Image & Media Technology aan de HKU. Helaas had ik geen camera tot mijn beschikking dus heb ik met mijn simpele telefoon geprobeerd er alles uit te halen wat erin zit!",
+            verhaal: "Met mijn foto serie illustreer ik het ontstaan van een nieuw idee/overtuiging. \n In je hoofd construeer je een idee welke in eerste instantie nog heel kwetsbaar is. Dit idee krijgt te maken met de echte wereld en wordt van alle kanten uit elkaar getrokken en in nieuwe perspectieven geplaatst (dit kan in je eigen hoofd of door andere mensen gebeuren). Uiteindelijk moet je al die meningen maar een beetje bij elkaar rapen en komen er twijfels over de waarde van het idee. Maar nu ligt het daar, in je hand, bij elkaar geraapt met al die nieuwe perspectieven, kom je er achter dat het idee eigenlijk een beeld schone reflectie is van jezelf. \n \n Dit was mijn idee achter de beelden. Daarentegen heb ik ze expres zo open voor interpretatie gemaakt dat de kijkers hun eigen idee en fantasieën er op los kunnen laten.",
+            socials: ['@coelepinda', 'https://davidzwitser.com']
+        },
+        {
+            name: 'Demian_Haverkamp',
+            profileExt: '.jpg',
+            projExt: '.jpg',
+            amountOfImages: 16,
             bio: "Hoi! Ik ben David. Ik ben 21 jaar oud en zit in het 2e jaar van IMT aan de HKU. \n Meestal ben ik bezig met programmeren maar dit keer met foto's maken :D. Ik vind het vooral leuk om met filosofische/ abstracte onderwerpen bezig te zijn.",
             verhaal: "Met mijn foto serie illustreer ik het ontstaan van een nieuw idee/overtuiging. \n In je hoofd construeer je een idee welke in eerste instantie nog heel kwetsbaar is. Dit idee krijgt te maken met de echte wereld en wordt van alle kanten uit elkaar getrokken en in nieuwe perspectieven geplaatst (dit kan in je eigen hoofd of door andere mensen gebeuren). Uiteindelijk moet je al die meningen maar een beetje bij elkaar rapen en komen er twijfels over de waarde van het idee. Maar nu ligt het daar, in je hand, bij elkaar geraapt met al die nieuwe perspectieven, kom je er achter dat het idee eigenlijk een beeld schone reflectie is van jezelf. \n \n Dit was mijn idee achter de beelden. Daarentegen heb ik ze expres zo open voor interpretatie gemaakt dat de kijkers hun eigen idee en fantasieën er op los kunnen laten.",
-            socials: ['@coelepinda', 'davidzwitser.com']
+            socials: ['@art_bydemian']
         },
         {
             name: 'Femke_Thoonen',
@@ -116,32 +125,38 @@ class Main
             amountOfImages: 16,
             bio: "Hey! Ik ben Thijsje, 20 jaar oud en zit nu in mijn 2e jaar fotografie. Mijn projecten hebben meestal best persoonlijke onderwerpen. Ik denk dat ik mezelf beter wil leren kennen door middel van mijn projecten.",
             verhaal: "Mijn serie gaat over een man die opeens in een gat wordt gezogen en in een andere wereld uitkomt. Hij is op de vlucht, hij wilt zo snel mogelijk weer terug naar de ‘normale’ wereld. In paniek rent hij door de gangen op zoek naar een uitgang. Dan heeft hij door dat hij achterna wordt gezeten..",
-            socials: ['@thijsemeis', '@meisjethijsje', 'thijsjelaan.myportfolio.com']
+            socials: ['@thijsemeis', '@meisjethijsje', 'http://thijsjelaan.myportfolio.com']
         }
            
     ]
+
+    private printImagePaths(): void
+    {
+        let prntStr: string = '';
+        let pre: string = "require.resolve('" + this.projectsBasePath;
+
+        for (let i = 0; i < this.profiles.length; i++)
+        {
+            let currProf: IProfile = this.profiles[i];
+    
+            prntStr += pre + currProf.name + '/profile_picture' + currProf.profileExt + "');\n";
+    
+            for(let y = 1; y <= currProf.amountOfImages; y++)
+            {
+                prntStr += pre + currProf.name + '/project_pictures/' + y + currProf.projExt + "');\n";
+            }
+    
+            prntStr += '\n';
+        }
+    
+        console.log(prntStr);
+    }
 
     constructor()
     {
         new ImageImporter();
 
-        // let prntStr: string = '';
-        // let pre: string = "require.resolve('" + this.projectsBasePath;
-        // for (let i = 0; i < this.profiles.length; i++)
-        // {
-        //     let currProf: IProfile = this.profiles[i];
-
-        //     prntStr += pre + currProf.name + '/profile_picture' + currProf.profileExt + "');\n";
-
-        //     for(let y = 1; y <= currProf.amountOfImages; y++)
-        //     {
-        //         prntStr += pre + currProf.name + '/project_pictures/' + y + currProf.projExt + "');\n";
-        //     }
-
-        //     prntStr += '\n';
-        // }
-
-        // console.log(prntStr);
+        // this.printImagePaths();
 
         ReactDOM.render(
             React.createElement(Body, <IContentProps> {
