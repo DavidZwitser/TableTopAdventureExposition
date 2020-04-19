@@ -108,7 +108,7 @@ export default class ImageImporter
         require.resolve('../../images/projects/Demian_Haverkamp/project_pictures/13.jpg');
         require.resolve('../../images/projects/Demian_Haverkamp/project_pictures/14.jpg');
         require.resolve('../../images/projects/Demian_Haverkamp/project_pictures/15.jpg');
-        require.resolve('../../images/projects/Demian_Haverkamp/project_pictures/16.jpg');
+        // require.resolve('../../images/projects/Demian_Haverkamp/project_pictures/16.jpg');
 
         require.resolve('../../images/projects/Femke_Thoonen/profile_picture.jpg');
         require.resolve('../../images/projects/Femke_Thoonen/project_pictures/1.jpg');

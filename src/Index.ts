@@ -70,15 +70,6 @@ class Main
             socials: ['@coelepinda', 'https://davidzwitser.com']
         },
         {
-            name: 'Demian_Haverkamp',
-            profileExt: '.jpg',
-            projExt: '.jpg',
-            amountOfImages: 16,
-            bio: "Hoi, ik ben Demian Haverkamp! 21 jaar oud en ik studeer Image & Media Technology aan de HKU. Helaas had ik geen camera tot mijn beschikking dus heb ik met mijn simpele telefoon geprobeerd er alles uit te halen wat erin zit!",
-            verhaal: "Het rode beestje uit de andere wereld wordt verliefd op meneer tape maar is onzeker, alleen red meneer tape het niet in de andere wereld.. Het rode beestje gaat verder opzoek naar een nieuwe liefde die hij aan het eind na vele tegenslagen toch vindt.",
-            socials: ['@art_bydemian']
-        },
-        {
             name: 'Femke_Thoonen',
             profileExt: '.jpg',
             projExt: '.jpg',
@@ -178,7 +169,17 @@ class Main
             bio: "Hey! Ik ben Thijsje, 20 jaar oud en zit nu in mijn 2e jaar fotografie. Mijn projecten hebben meestal best persoonlijke onderwerpen. Ik denk dat ik mezelf beter wil leren kennen door middel van mijn projecten.",
             verhaal: "Mijn serie gaat over een man die opeens in een gat wordt gezogen en in een andere wereld uitkomt. Hij is op de vlucht, hij wilt zo snel mogelijk weer terug naar de ‘normale’ wereld. In paniek rent hij door de gangen op zoek naar een uitgang. Dan heeft hij door dat hij achterna wordt gezeten..",
             socials: ['@thijsemeis', '@meisjethijsje', 'https://thijsjelaan.myportfolio.com']
-        }
+        },
+
+        {
+            name: 'Demian_Haverkamp',
+            profileExt: '.jpg',
+            projExt: '.jpg',
+            amountOfImages: 15,
+            bio: "Hoi, ik ben Demian Haverkamp! 21 jaar oud en ik studeer Image & Media Technology aan de HKU. Helaas had ik geen camera tot mijn beschikking dus heb ik met mijn simpele telefoon geprobeerd er alles uit te halen wat erin zit!",
+            verhaal: "Het rode beestje uit de andere wereld wordt verliefd op meneer tape maar is onzeker, alleen red meneer tape het niet in de andere wereld.. Het rode beestje gaat verder opzoek naar een nieuwe liefde die hij aan het eind na vele tegenslagen toch vindt.",
+            socials: ['@art_bydemian']
+        },
            
     ]
 
@@ -201,14 +202,14 @@ class Main
             prntStr += '\n';
         }
     
-        // console.log(prntStr);
+        console.log(prntStr);
     }
 
     constructor()
     {
         new ImageImporter();
 
-        this.printImagePaths();
+        // this.printImagePaths();
 
         ReactDOM.render(
             React.createElement(Body, <IContentProps> {
