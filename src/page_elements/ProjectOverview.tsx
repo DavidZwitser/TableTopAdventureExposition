@@ -72,10 +72,12 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
         if (nextAuthor < 0)
         {
             nextAuthor = this.props.profiles.length - 1;
+            nextAuthor = 0;
         }
         else if (nextAuthor > this.props.profiles.length - 1)
         {
             nextAuthor = 0;
+            nextAuthor = this.props.profiles.length - 1;
         }
 
         window.location.hash = nextAuthor + '';
@@ -193,7 +195,12 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
         window.removeEventListener('keydown', this.keyPressed.bind(this));
     }
 
-    
+    optionalRender(condition: boolean, element: JSX.Element): JSX.Element
+    {
+        if (!condition) { return null; }
+
+        return element;
+    }   
 
     render()
     {
@@ -249,10 +256,14 @@ export default class ProjectOverview extends React.Component<IProjectOverviewPro
                         <img src= {authorImagePath} alt=""/>
                         
                         <div id = 'author-texts'>
-                            <p id = 'author-bio-title'>Biografie</p>
+                            {this.optionalRender(this.state.currentAuthor.bio !== '', (
+                                <p id = 'author-bio-title'>Bio</p>
+                            ))}
                             {this.state.currentAuthor.bio}
 
-                            <p id = 'author-verhaal-title'>Het verhaal</p>
+                            {this.optionalRender(this.state.currentAuthor.verhaal !== '', (
+                                <p id = 'author-verhaal-title'>{this.state.currentAuthor.title !== undefined ? this.state.currentAuthor.title : 'Het verhaal'}</p>
+                            ))}
                             {this.state.currentAuthor.verhaal}
 
                             {this.getSocials(this.state.currentAuthor.socials)}
