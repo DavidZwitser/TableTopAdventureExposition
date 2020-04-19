@@ -158,6 +158,7 @@ class Main
             profileExt: '.jpg',
             projExt: '.jpg',
             amountOfImages: 16,
+            hasNoProfilePicture: true,
             bio: 'Ik ben Merel Buvelot, 23 jaar en eerstejaars illustratie student. Ik heb hiervoor ook nog filosofie gestudeerd en ik teken graag dieren.',
             verhaal: 'Het verhaal gaat over een man die in een boot zit maar de boot zinkt, waardoor hij op een onbewoond eiland terecht komt. Uiteindelijk wordt hij gek, gaat alles in de fik. Maar wordt hij weer wakker in zijn bed (of een bed).'
         },
