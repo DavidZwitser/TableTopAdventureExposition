@@ -43,6 +43,16 @@ class Main
             title: 'The road less traveled'
         },
         {
+            name: 'Bas_Lanting',
+            profileExt: '.jpg',
+            projExt: '.jpg',
+            amountOfImages: 14,
+            bio: 'Ik ben Bas Lanting, 20 jaar oud en eerste jaars fotografie student. Ik ben veelal gefascineerd door',
+            verhaal: 'A reaction to the action consumers took during the first stages of the coronavirus pandemic with hopes rebirthing the way we think about our need for consumables.',
+            title: 'Consumed',
+            socials: ['@baslanting']
+        },
+        {
             name: 'Chayren_Zimmerman',
             profileExt: '.jpg',
             projExt: '.jpg',
@@ -193,7 +203,10 @@ class Main
         {
             let currProf: IProfile = this.profiles[i];
     
-            prntStr += pre + currProf.name + '/profile_picture' + currProf.profileExt + "');\n";
+            if (currProf.hasNoProfilePicture !== true)
+            {
+                prntStr += pre + currProf.name + '/profile_picture' + currProf.profileExt + "');\n";
+            }
     
             for(let y = 1; y <= currProf.amountOfImages; y++)
             {
